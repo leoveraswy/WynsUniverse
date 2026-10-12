@@ -1,0 +1,617 @@
+
+/* =========================
+   1. COLOR PALETTE & BASICS
+   ========================= */
+
+:root {
+    --blue: #3976c5;
+    --deep-blue: #23456f;
+    --pale-blue: #edf5ff;
+    --white: #ffffff;
+    --lavender: #f1efff;
+    --text: #334764;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--pale-blue);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+/* =========================
+   2. NAVIGATION BAR
+   ========================= */
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 8%;
+    background: var(--white);
+    border-bottom: 1px solid #dce8f8;
+}
+
+.logo {
+    color: var(--deep-blue);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+/* =========================
+   3. WELCOME SECTION
+   ========================= */
+
+.hero {
+    padding: 100px 8% 110px;
+    text-align: center;
+    background: linear-gradient(135deg, #edf5ff, #f1efff);
+}
+
+.eyebrow {
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin: 20px 0;
+    color: var(--deep-blue);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.15;
+}
+
+.hero-text {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 30px;
+    background: var(--blue);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-button:hover {
+    background: var(--deep-blue);
+    transform: translateY(-3px);
+}
+
+/* =========================
+   4. INTEREST CARDS
+   ========================= */
+
+.interests,
+.creations {
+    padding: 75px 8%;
+}
+
+.interests h2,
+.creations h2 {
+    margin-top: 0;
+    color: var(--deep-blue);
+    font-size: 2.2rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-top: 32px;
+}
+
+.interest-card {
+    padding: 28px;
+    border: 1px solid #dce8f8;
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: 0 8px 24px rgb(35 69 111 / 6%);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgb(35 69 111 / 12%);
+}
+
+.card-icon {
+    font-size: 2rem;
+}
+
+.interest-card h3 {
+    margin: 15px 0 8px;
+    color: var(--deep-blue);
+}
+
+.interest-card p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+/* =========================
+   5. CREATIONS SECTION
+   ========================= */
+
+.creations {
+    background: var(--white);
+}
+
+.creations > p:last-child {
+    max-width: 650px;
+}
+
+/* =========================
+   6. FOOTER
+   ========================= */
+
+footer {
+    padding: 25px;
+    background: var(--deep-blue);
+    color: var(--white);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   7. SMALL SCREEN ADJUSTMENTS
+   ========================= */
+
+@media (max-width: 600px) {
+    .site-header {
+        flex-direction: column;
+        padding: 20px 5%;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .hero {
+        padding: 70px 6%;
+    }
+
+    .interests,
+    .creations {
+        padding: 50px 6%;
+    }
+}
+
+/* ABOUT ME SECTION */
+
+.about-me {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr);
+    align-items: center;
+    gap: 50px;
+    padding: 80px 8%;
+}
+
+.about-me h2 {
+    margin-top: 0;
+    color: var(--deep-blue);
+    font-size: 2.3rem;
+}
+
+.about-content p:not(.eyebrow) {
+    max-width: 650px;
+}
+
+.about-note {
+    padding: 30px;
+    border: 1px solid #dce8f8;
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: 0 8px 24px rgb(35 69 111 / 6%);
+}
+
+.about-note span {
+    color: var(--blue);
+    font-size: 2rem;
+}
+
+.about-note h3 {
+    color: var(--deep-blue);
+}
+
+/* Stack the columns on smaller screens */
+@media (max-width: 600px) {
+    .about-me {
+        grid-template-columns: 1fr;
+        padding: 50px 6%;
+    }
+}
+
+/* THEME SWITCHER BUTTON */
+
+.theme-toggle {
+    padding: 10px 16px;
+    border: 1px solid #dce8f8;
+    border-radius: 25px;
+    background: white;
+    color: var(--deep-blue);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   DARK MODE THEME
+   ========================= */
+
+body.dark-mode {
+    --blue: #91baff;
+    --deep-blue: #d4e4ff;
+    --pale-blue: #151b2e;
+    --white: #202941;
+    --lavender: #25213a;
+    --text: #e0e8f7;
+
+    background: var(--pale-blue);
+    color: var(--text);
+}
+
+/* Header */
+body.dark-mode .site-header {
+    background: var(--white);
+    border-bottom-color: #35415c;
+}
+
+/* Welcome section */
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #151b2e, #25213a);
+}
+
+/* Interest cards */
+body.dark-mode .interest-card,
+body.dark-mode .about-note {
+    background: var(--white);
+    border-color: #35415c;
+}
+
+/* Creations section */
+body.dark-mode .creations {
+    background: var(--white);
+}
+
+/* Navigation links */
+body.dark-mode nav a {
+    color: var(--text);
+}
+
+/* Theme button */
+body.dark-mode .theme-toggle {
+    background: #202941;
+    color: var(--deep-blue);
+    border-color: #465575;
+}
+
+/* Footer */
+body.dark-mode footer {
+    background: #101525;
+}
+
+/* EXPANDABLE INTEREST CARDS */
+
+.interest-card details summary {
+    cursor: pointer;
+    list-style-position: inside;
+}
+
+.interest-card details summary h3 {
+    display: inline;
+}
+
+.interest-card details[open] summary {
+    margin-bottom: 12px;
+}
+
+.interest-card details p {
+    animation: reveal-text 0.25s ease;
+}
+
+@keyframes reveal-text {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   PROJECT GALLERY
+   ========================= */
+
+.creations-intro {
+    max-width: 650px;
+    margin-bottom: 32px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.project-card {
+    overflow: hidden;
+    border: 1px solid #dce8f8;
+    border-radius: 20px;
+    background: var(--pale-blue);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgb(35 69 111 / 12%);
+}
+
+.project-art {
+    display: grid;
+    min-height: 150px;
+    place-items: center;
+    font-size: 3.5rem;
+}
+
+.web-art {
+    background: linear-gradient(135deg, #dcecff, #c8d8ff);
+}
+
+.art-art {
+    background: linear-gradient(135deg, #f0e5ff, #dcd5ff);
+}
+
+.idea-art {
+    background: linear-gradient(135deg, #d9f5ee, #dcecff);
+}
+
+.project-category {
+    margin: 22px 22px 8px;
+    color: var(--blue);
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.project-card h3 {
+    margin: 0 22px 10px;
+    color: var(--deep-blue);
+}
+
+.project-card > p:not(.project-category) {
+    margin: 0 22px 18px;
+    font-size: 0.93rem;
+}
+
+.project-status {
+    display: inline-block;
+    margin: 0 22px 24px;
+    color: var(--blue);
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* Dark mode */
+body.dark-mode .project-card {
+    background: var(--white);
+    border-color: #35415c;
+}
+
+body.dark-mode .web-art {
+    background: linear-gradient(135deg, #263c60, #34345c);
+}
+
+body.dark-mode .art-art {
+    background: linear-gradient(135deg, #44345e, #34345c);
+}
+
+body.dark-mode .idea-art {
+    background: linear-gradient(135deg, #234c4d, #263c60);
+}
+
+/* PROJECT LINKS */
+
+.project-link {
+    display: inline-block;
+    margin: 0 22px 24px;
+    padding: 10px 16px;
+    border: 1px solid var(--blue);
+    border-radius: 24px;
+    color: var(--blue);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.project-link:hover {
+    background: var(--blue);
+    color: white;
+}
+
+.project-link:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+
+/* =========================
+   CONTACT SECTION
+   ========================= */
+
+.contact {
+    padding: 80px 8%;
+    text-align: center;
+    background: linear-gradient(135deg, #edf5ff, #f1efff);
+}
+
+.contact h2 {
+    margin-top: 0;
+    color: var(--deep-blue);
+    font-size: 2.2rem;
+}
+
+.contact-intro {
+    max-width: 600px;
+    margin: 0 auto 32px;
+}
+
+.contact-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-links a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #dce8f8;
+    border-radius: 18px;
+    background: var(--white);
+    color: var(--text);
+    text-align: left;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-links a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgb(35 69 111 / 10%);
+}
+
+.contact-links a > span:first-child {
+    font-size: 1.8rem;
+}
+
+.contact-links a strong,
+.contact-links a small {
+    display: block;
+}
+
+.contact-links a strong {
+    color: var(--deep-blue);
+}
+
+.contact-links a small {
+    margin-top: 4px;
+    font-size: 0.8rem;
+}
+
+.contact-note {
+    margin-top: 32px;
+    font-size: 0.9rem;
+}
+
+/* Dark mode */
+body.dark-mode .contact {
+    background: linear-gradient(135deg, #151b2e, #25213a);
+}
+
+body.dark-mode .contact-links a {
+    border-color: #35415c;
+}
+
+/* CONTACT LINKS — LAYOUT FIX */
+
+.contact-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    max-width: 900px;
+    margin: 32px auto 0;
+}
+
+.contact-links a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #dce8f8;
+    border-radius: 18px;
+    background: var(--white);
+    color: var(--text);
+    text-align: left;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-links a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgb(35 69 111 / 10%);
+}
+
+.contact-links a > span:first-child {
+    flex-shrink: 0;
+    font-size: 1.8rem;
+}
+
+.contact-links a strong,
+.contact-links a small {
+    display: block;
+}
+
+.contact-links a strong {
+    color: var(--deep-blue);
+}
+
+.contact-links a small {
+    margin-top: 4px;
+    font-size: 0.8rem;
+}
+
+body.dark-mode .contact-links a {
+    background: var(--white);
+    color: var(--text);
+    border-color: #35415c;
+}
+
+body.dark-mode .contact-links a strong {
+    color: var(--deep-blue);
+}
